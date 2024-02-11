@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:chat_app/widgets/user_image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -29,7 +28,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   void _submit() async {
     final isValid = _formKey.currentState!.validate();
-    if (!isValid || _isLogin && _selectedImage == null) {
+    if (!isValid || !_isLogin && _selectedImage == null) {
       //show error message
       return;
     }
@@ -71,9 +70,9 @@ class _AuthScreenState extends State<AuthScreen> {
           content: Text(error.message ?? 'Authentication failed.'),
         ),
       );
-      setState(() {
+      /* setState(() {
         _isAuthenticating = false;
-      });
+      }); */
     }
   }
 

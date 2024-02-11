@@ -42,22 +42,25 @@ class _NewMessageState extends State<NewMessage> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 15, right: 1, bottom: 14),
-      child: Row(children: [
-        Expanded(
-          child: TextField(
-            controller: _messageController,
-            textCapitalization: TextCapitalization.sentences,
-            autocorrect: true,
-            enableSuggestions: true,
-            decoration: const InputDecoration(labelText: 'send a message...'),
+      padding: const EdgeInsets.only(left: 15, right: 1, bottom: 14),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              controller: _messageController,
+              textCapitalization: TextCapitalization.sentences,
+              autocorrect: true,
+              enableSuggestions: true,
+              decoration: const InputDecoration(labelText: 'send a message...'),
+            ),
           ),
-        ),
-        IconButton(
+          IconButton(
             color: Theme.of(context).colorScheme.primary,
+            icon: const Icon(Icons.send),
             onPressed: _submitMessage,
-            icon: const Icon(Icons.send))
-      ]),
+          )
+        ],
+      ),
     );
   }
 }
